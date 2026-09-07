@@ -1,0 +1,29 @@
+{
+  "name": "car-schedule",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "vitest run",
+    "dev": "txs watch src/server.ts",
+    "build": "tsc",
+    "start": "node dist/server.ts",
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^26.4.1",
+    "@types/uuid": "^10.0.0",
+    "tsx": "^4.23.13",
+    "typescript": "^7.0.2",
+    "vitest": "^5.0.0"
+  },
+  "dependencies": {
+    "fastify": "^5.12.3",
+    "uuid": "^14.0.2",
+    "zod": "^4.5.4"
+  }
+}
