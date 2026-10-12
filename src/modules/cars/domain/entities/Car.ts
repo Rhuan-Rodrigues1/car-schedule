@@ -33,7 +33,7 @@ export class Car {
     }
 
     get plate(): string {
-        return this.props.model
+        return this.props.plate
     }
 
 }
