@@ -6,7 +6,7 @@ export type ReservationStatus =
         | "COMPLETED"
         | "CANCELLED"
 
-interface IReservation {
+export interface IReservation {
     id: string;
     requesterId: string;
     driverId: string;
