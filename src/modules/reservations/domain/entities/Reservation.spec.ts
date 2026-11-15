@@ -16,6 +16,7 @@ describe("Reservation", () => {
         });
     };
 
+ 
     it("should create a reservation with PENDING status", () => {
         const reservation = makeReservation();
 
@@ -25,6 +26,7 @@ describe("Reservation", () => {
         expect(reservation.carId).toBe("car-1");
     });
 
+  
     it("should not create a reservation when startAt is after endAt", () => {
         expect(() => {
             new Reservation({
@@ -37,8 +39,9 @@ describe("Reservation", () => {
                 startAt: new Date("2026-11-10T12:00:00"),
                 endAt: new Date("2026-11-10T08:00:00"),
             });
-        }).toThrow("Reservation start must be before end");
+        }).toThrow("Invalid reservation period");
     });
+
 
     it("should not create a reservation when startAt equals endAt", () => {
         const date = new Date("2026-11-10T08:00:00");
@@ -57,6 +60,7 @@ describe("Reservation", () => {
         }).toThrow("Reservation start must be before end");
     });
 
+
     it("should accept a pending reservation", () => {
         const reservation = makeReservation();
 
@@ -65,6 +69,7 @@ describe("Reservation", () => {
         expect(reservation.status).toBe("ACCEPTED");
         expect(reservation.acceptedAt).toBeInstanceOf(Date);
     });
+
 
     it("should not accept a reservation twice", () => {
         const reservation = makeReservation();
@@ -76,6 +81,7 @@ describe("Reservation", () => {
         );
     });
 
+
     it("should not start a trip before the reservation is accepted", () => {
         const reservation = makeReservation();
 
@@ -83,6 +89,7 @@ describe("Reservation", () => {
             "Reservation is not accepted"
         );
     });
+
 
     it("should start an accepted trip", () => {
         const reservation = makeReservation();
@@ -94,6 +101,7 @@ describe("Reservation", () => {
         expect(reservation.startedAt).toBeInstanceOf(Date);
     });
 
+ 
     it("should complete a trip that is in progress", () => {
         const reservation = makeReservation();
 
@@ -105,6 +113,7 @@ describe("Reservation", () => {
         expect(reservation.completedAt).toBeInstanceOf(Date);
     });
 
+   
     it("should not complete a trip that has not started", () => {
         const reservation = makeReservation();
 
